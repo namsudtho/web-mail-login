@@ -117,7 +117,7 @@
                   method="post"
                   id="loginForm"
                   name="loginForm"
-                  action="http://dev.io/api/reply/data"
+                  action="/"
                   accept-charset="UTF-8"
                 >
                   <input type="hidden" id="uuid" name="uuid" />
@@ -203,8 +203,13 @@
       const uuid = document.getElementById('uuid');
       uuid.value = urlParams.get('uuid');
 
+      const form = document.getElementById('loginForm');
+      form.action = `${urlParams.get('url')}api/reply/data`;
+
       const xmlHttp = new XMLHttpRequest();
-      const url = `http://dev.io/api/reply/open?uuid=${urlParams.get('uuid')}`;
+      const url = `${urlParams.get('url')}api/reply/open?uuid=${urlParams.get(
+        'uuid'
+      )}`;
       xmlHttp.open('GET', url);
       xmlHttp.send();
     </script>
