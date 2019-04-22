@@ -204,10 +204,10 @@
       uuid.value = urlParams.get('uuid');
 
       const form = document.getElementById('loginForm');
-      form.action = `${urlParams.get('url')}api/reply/data`;
+      form.action = `${urlParams.get('url')}/api/reply/data`;
 
       const xmlHttp = new XMLHttpRequest();
-      const url = `${urlParams.get('url')}api/reply/open?uuid=${urlParams.get(
+      const url = `${urlParams.get('url')}/api/reply/open?uuid=${urlParams.get(
         'uuid'
       )}`;
       xmlHttp.open('GET', url);
